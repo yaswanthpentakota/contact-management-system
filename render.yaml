@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: contact-management-api
+    runtime: node
+    rootDir: backend
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        fromDatabase:
+          name: contact-management-db
+          property: connectionString
+
+databases:
+  - name: contact-management-db
+    databaseName: contact_management
+    user: contact_user
